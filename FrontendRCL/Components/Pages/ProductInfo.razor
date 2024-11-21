@@ -1,0 +1,38 @@
+﻿@page "/{Products.Id}"
+
+@using Pages
+
+@inject HttpClient Http
+@inject IHttpClientFactory HttpClientFactory
+
+<div class="rz-p-12 rz-text-align-center">
+
+    <b class="rz-p-12 rz-text-align-left">License Key for Device @Product!.Id</b>
+
+    <div class="rz-p-6 rz-text-align-left">
+
+        <RadzenTextBox Disabled="true" Value="@Product!.Name"  /> <br/>
+
+        <RadzenTextBox Disabled="true" Value="@Product.Price" /> <br/>
+
+
+    </div>
+
+    <div class="rz-p-6 rz-text-align-left">
+
+
+    </div>
+
+    <div class="rz-p-6 rz-text-align-right">
+
+        <RadzenTextBox Disabled="true" Value="@Product.Description" /> <br />
+
+    </div>
+
+    <div class="rz-p-6 rz-text-align-right">
+
+        <RadzenButton Text="Add To Cart" Click="OnClickBuy" Size="ButtonSize.Large" />
+
+    </div>
+
+</div>

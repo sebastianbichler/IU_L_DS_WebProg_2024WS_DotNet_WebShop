@@ -1,0 +1,49 @@
+﻿@page "/"
+@using System.Net.Http.Json
+@using BackendDatabaseAccess
+@using BackendBusinessObject
+@using FrontendRCL.Components.Pages;
+@using Radzen.Blazor
+@using Radzen
+
+<h3>Webshop</h3>
+
+@inject HttpClient Http
+@inject IHttpClientFactory HttpClientFactory
+
+
+<div>
+    <div class="container-fluid header-box">
+        <h1 href="/">Kreativer Shop Name</h1>
+        <br />
+        <h2>Willkommen.</h2>
+    </div>
+
+    <div class="rz-p-6 rz-text-align-right">
+
+        <b>Items in cart: @ProductsInCart.Count </b>
+
+
+    </div>
+</div>
+
+
+<RadzenDataGrid AllowFiltering="true" TItem="Products" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.SimpleWithMenu" AllowSorting="true"
+                PageSize="100" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                Data="ProductData" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or"
+                SelectionMode="DataGridSelectionMode.Single" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive"
+                RowDoubleClick="OnRowDoubleClick">
+       
+    
+    <Columns>
+        
+        <RadzenDataGridColumn Property="Id" Title="Product Number" Width="40px" />
+
+        <RadzenDataGridColumn Property="Name" Title="Product Name" Width="100px" />
+
+        <RadzenDataGridColumn Property="Price" Title="Price" Width="100px" />
+
+        <RadzenDataGridColumn Property="Description" Title="Description" Width="400px" />
+
+    </Columns>
+</RadzenDataGrid>
